@@ -1,0 +1,119 @@
+/* Container */
+.view-recipe-container {
+  max-width: 900px;
+  margin: 2rem auto 4rem auto;
+  padding: 1.5rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.view-recipe-container h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #222;
+}
+
+/* Recipe Image */
+.view-recipe-container img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+.view-recipe-container img:hover {
+  transform: scale(1.02);
+}
+
+/* Section titles */
+.view-recipe-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  border-bottom: 3px solid #ff6b35; /* warm orange accent */
+  padding-bottom: 0.3rem;
+  color: #ff6b35;
+}
+
+/* Ingredients List */
+.ingredients-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  background-color: #fff7f3;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  color: #7a4a1f;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.ingredients-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Method Text */
+.method-text {
+  background-color: #fff7f3;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  line-height: 1.75;
+  font-size: 1.15rem;
+  color: #7a4a1f;
+  white-space: pre-line;
+  margin-bottom: 2rem;
+  font-family: 'Georgia', serif;
+}
+
+/* Full Recipe Link */
+.full-recipe-link {
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
+  color: #ff6b35;
+  text-decoration: none;
+  font-size: 1.15rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  margin-bottom: 4rem;
+}
+
+.full-recipe-link:hover {
+  color: #d94a13;
+  border-bottom-color: #d94a13;
+}
+
+/* Loading & Error Messages */
+.message {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 4rem 0;
+  font-weight: 600;
+  color: #444;
+}
+
+.message.error {
+  color: #e63946; /* red */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .view-recipe-container {
+    padding: 1rem 1.2rem;
+  }
+
+  .view-recipe-container h1 {
+    font-size: 2rem;
+  }
+
+  .view-recipe-container h2 {
+    font-size: 1.5rem;
+  }
+}

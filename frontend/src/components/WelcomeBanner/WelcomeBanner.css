@@ -1,0 +1,72 @@
+.welcome-banner {
+  width: 100%;
+  background-color: #f0fdfa;
+  padding: 80px 20px;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  font-family: "Poppins", sans-serif;
+}
+
+.welcome-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.welcome-content h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  color: #0d9488;
+}
+
+.welcome-content p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.welcome-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.welcome-buttons .primary,
+.welcome-buttons .secondary {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.welcome-buttons .primary {
+  background-color: #0d9488;
+  color: white;
+}
+
+.welcome-buttons .primary:hover {
+  background-color: #0f766e;
+}
+
+.welcome-buttons .secondary {
+  background-color: #e0f2f1;
+  color: #0d9488;
+}
+
+.welcome-buttons .secondary:hover {
+  background-color: #ccfbf1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .welcome-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .welcome-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

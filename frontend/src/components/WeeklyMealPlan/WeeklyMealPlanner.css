@@ -1,0 +1,89 @@
+.planner-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 30px 20px;
+  background-color: #f8fafc;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.planner-header {
+  width: 1200px;
+  margin: 0 auto;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #0d9488;
+  padding-left: 30px;
+   
+}
+
+.planner-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
+}
+
+.planner-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: #0d9488;
+  text-align: center;
+}
+
+.meal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.meal-label {
+  flex: 0.8;
+  color: #334155;
+  font-weight: 500;
+}
+
+.meal-value {
+  flex: 1.2;
+  color: #475569;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.meal-actions {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.meal-actions button {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #e0f2f1;
+  color: #0d9488;
+  transition: 0.2s;
+}
+
+.meal-actions button:hover {
+  background-color: #ccfbf1;
+}
+
+@media (max-width: 600px) {
+  .meal-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meal-actions {
+    justify-content: flex-start;
+    margin-top: 6px;
+  }
+}

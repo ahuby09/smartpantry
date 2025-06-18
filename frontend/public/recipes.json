@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Chicken Alfredo",
+    "image": "link-to-image",
+    "url": "https://example.com/chicken-alfredo"
+  },
+  {
+    "id": 2,
+    "title": "Beef Tacos",
+    "image": "link-to-image",
+    "url": "https://example.com/beef-tacos"
+  }
+]
