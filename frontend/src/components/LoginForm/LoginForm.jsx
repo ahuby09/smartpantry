@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import './LoginForm.css';
-import { jwtDecode } from 'jwt-decode';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./LoginForm.css";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [form, setForm] = useState({ email: '', password: '' });
-  const [error, setError] = useState('');
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -16,26 +16,26 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("http://localhost:3001/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
       if (!response.ok) {
         const data = await response.json();
-        throw new Error(data.message || 'Login failed');
+        throw new Error(data.message || "Login failed");
       }
 
       const data = await response.json();
       setLoading(false);
-      localStorage.setItem('token', data.token);
+      localStorage.setItem("token", data.token);
       const user = jwtDecode(data.token);
-      navigate('/');
+      navigate("/");
     } catch (err) {
       setLoading(false);
       setError(err.message);
@@ -71,17 +71,17 @@ const LoginForm = () => {
           required
         />
 
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
         <button type="submit" className="submit-btn" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
+          {loading ? "Logging in..." : "Login"}
         </button>
 
         <button
           type="button"
           className="submit-btn"
           onClick={() =>
-            navigate('/register', {
+            navigate("/register", {
               state: { email: form.email, password: form.password },
             })
           }

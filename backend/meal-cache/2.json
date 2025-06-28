@@ -1,69 +1,62 @@
 [
   {
-    "name": "Classic Spaghetti and Meatballs",
-    "recipe": "https://www.allrecipes.com/recipe/158140/classic-spaghetti-and-meatballs/",
-    "neededIngredients": [
-      "spaghetti noodles",
-      "ground beef",
-      "tomato sauce",
-      "bread crumbs",
-      "egg"
-    ],
-    "method": "Step 1: Cook spaghetti according to package instructions.\nStep 2: Mix ground beef, bread crumbs, egg, salt, and pepper. Form into meatballs.\nStep 3: Brown meatballs in a skillet, then simmer in tomato sauce.\nStep 4: Serve meatballs and sauce over cooked spaghetti.",
-    "image": "/meal-images/a77aefd2-3cd0-4cd2-83c7-5ce726389495.png"
-  },
-  {
-    "name": "Grilled Lemon Herb Chicken",
-    "recipe": "https://www.foodnetwork.com/recipes/grilled-lemon-herb-chicken-recipe-1957845",
+    "name": "Baked Chicken Parmesan",
+    "recipe": "https://www.foodnetwork.com/recipes/ina-garten/chicken-parmesan-recipe-1948708",
     "neededIngredients": [
       "chicken breasts",
-      "lemon",
-      "rosemary",
-      "garlic",
-      "olive oil"
+      "breadcrumbs",
+      "parmesan cheese",
+      "marinara sauce"
     ],
-    "method": "Step 1: Marinate chicken in lemon juice, olive oil, garlic, and rosemary.\nStep 2: Preheat grill to medium-high heat.\nStep 3: Grill chicken for 6-7 minutes per side, until fully cooked.\nStep 4: Serve with additional lemon wedges.",
-    "image": "/meal-images/bd7ea09e-0f51-46f2-9477-7973856ce7f9.png"
+    "method": "Step 1: Preheat oven to 400°F. \nStep 2: Coat chicken breasts in breadcrumbs and parmesan cheese. \nStep 3: Bake chicken in marinara sauce for 25-30 minutes.",
+    "image": null
   },
   {
-    "name": "Vegetarian Chickpea Curry",
-    "recipe": "https://www.vegetariantimes.com/recipes/chickpea-curry",
-    "neededIngredients": [
-      "chickpeas",
-      "coconut milk",
-      "tomatoes",
-      "onion",
-      "garlic",
-      "curry powder"
-    ],
-    "method": "Step 1: Saute onions and garlic in a large pot until softened.\nStep 2: Add tomatoes, coconut milk, chickpeas, and curry powder.\nStep 3: Simmer for 20 minutes, stirring occasionally.\nStep 4: Serve over rice or with naan bread.",
-    "image": "/meal-images/09e3a46a-ed7a-4c89-b583-ef5e653230a9.png"
-  },
-  {
-    "name": "Beef Stir-Fry with Vegetables",
-    "recipe": "https://www.tasteofhome.com/recipes/beef-vegetable-stir-fry/",
+    "name": "Beef Stir Fry",
+    "recipe": "https://www.allrecipes.com/recipe/228293/beef-stir-fry/",
     "neededIngredients": [
       "beef sirloin",
       "bell peppers",
-      "broccoli",
       "soy sauce",
-      "garlic",
       "ginger"
     ],
-    "method": "Step 1: Slice beef into thin strips and marinate in soy sauce, garlic, and ginger.\nStep 2: Stir-fry beef in a hot skillet until browned, then remove from pan.\nStep 3: Stir-fry bell peppers and broccoli until tender-crisp.\nStep 4: Return beef to skillet, toss everything together, and serve hot.",
-    "image": "/meal-images/5569738f-65c7-431b-b487-4be2001d8b72.png"
+    "method": "Step 1: Slice beef and vegetables. \nStep 2: Stir fry beef in a hot pan. \nStep 3: Add vegetables, soy sauce, and ginger. \nStep 4: Cook until vegetables are tender.",
+    "image": null
   },
   {
-    "name": "Baked Salmon with Lemon Dill Sauce",
-    "recipe": "https://www.foodnetwork.com/recipes/ina-garten/baked-salmon-with-lemon-and-herbs-recipe-1913040",
+    "name": "Spaghetti Carbonara",
+    "recipe": "https://www.bonappetit.com/recipe/spaghetti-carbonara",
+    "neededIngredients": [
+      "spaghetti",
+      "bacon",
+      "eggs",
+      "parmesan cheese"
+    ],
+    "method": "Step 1: Cook spaghetti according to package instructions. \nStep 2: In a separate pan, cook bacon until crispy. \nStep 3: Beat eggs and cheese together. \nStep 4: Toss hot spaghetti with egg mixture and bacon.",
+    "image": null
+  },
+  {
+    "name": "Vegetarian Chili",
+    "recipe": "https://www.foodnetwork.com/recipes/food-network-kitchen/vegetarian-chili-recipe-2108986",
+    "neededIngredients": [
+      "beans",
+      "bell peppers",
+      "onions",
+      "tomatoes"
+    ],
+    "method": "Step 1: Saute onions and bell peppers in a large pot. \nStep 2: Add beans, tomatoes, and spices. \nStep 3: Simmer for 30 minutes.",
+    "image": null
+  },
+  {
+    "name": "Grilled Salmon with Lemon Butter Sauce",
+    "recipe": "https://www.epicurious.com/recipes/food/views/grilled-salmon-with-lemon-butter-sauce-367347",
     "neededIngredients": [
       "salmon fillets",
       "lemon",
-      "dill",
       "butter",
-      "garlic"
+      "dill"
     ],
-    "method": "Step 1: Preheat oven to 400°F (200°C) and line a baking sheet with foil.\nStep 2: Place salmon on baking sheet, sprinkle with salt, pepper, and lemon juice.\nStep 3: Bake for 12-15 minutes until salmon is flaky.\nStep 4: Meanwhile, melt butter in a saucepan, add garlic, dill, and lemon juice to make sauce.\nStep 5: Serve salmon with lemon dill sauce drizzled on top.",
-    "image": "/meal-images/e9203786-ee5e-4e8d-9bed-7689cb1295a7.png"
+    "method": "Step 1: Preheat grill to medium heat. \nStep 2: Grill salmon fillets for 4-5 minutes per side. \nStep 3: In a saucepan, melt butter and lemon juice. \nStep 4: Pour sauce over grilled salmon and sprinkle with dill.",
+    "image": "/meal-images/e54f760a-56b6-4f71-96b9-4ef557bfb19b.png"
   }
 ]

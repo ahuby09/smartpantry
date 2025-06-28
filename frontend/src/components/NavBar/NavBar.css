@@ -5,6 +5,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  
 }
 
 .navbar-container {
@@ -12,12 +13,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  max-width: 1200px;
+  max-width: 1400px;
+  min-height: 86px;
   margin: 0 auto;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 40px !important;
   font-weight: bold;
   font-family: "Quicksand", sans-serif;
   color: #0d9488; /* teal */
@@ -34,8 +36,8 @@
 .nav-links li {
   cursor: pointer;
   color: #333;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 18px;
   font-family: "Poppins", sans-serif;
   transition: color 0.2s ease-in-out;
 }
@@ -63,8 +65,10 @@ li button{
   background: none;
   cursor: pointer;
   color: #333;
-  font-weight: 500;
-  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
   font-family: "Poppins", sans-serif;
   transition: color 0.2s ease-in-out;
 }

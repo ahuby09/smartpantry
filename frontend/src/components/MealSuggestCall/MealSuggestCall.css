@@ -1,105 +1,74 @@
-.meal-panel {
-  width: 1200px;
-  padding: 30px 20px;
-  background-color: #ffffff;
+.main-content {
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
 }
 
-.meal-panel h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #0d9488;
+.main-content h2 {
+  margin-bottom: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #0D9488;
 }
 
-.meal-scroll {
+.suggestion-grid {
   display: flex;
-  overflow-x: auto;
-  gap: 16px;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 53px;
 }
 
-.meal-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.meal-card {
-  flex: 0 0 calc(33.333% - 10.67px); /* 3 cards per view */
-  min-width: 300px;
-  max-width: 300px;
-  background-color: #f9f9f9;
+.suggestion-box {
+  width: 300px;
+  height: 300px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  padding: 16px;
-  flex-shrink: 0;
-  scroll-snap-align: start;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.meal-card img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.meal-card h3 {
-  font-size: 1.1rem;
-  margin: 10px 0;
-  color: #333;
-}
-
-.meal-actions {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: flex-start;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.view-btn,
-.add-btn {
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
+.suggestion-box:hover {
+  transform: scale(1.02);
 }
 
-.view-btn {
-  background-color: #e0f2f1;
-  color: #0d9488;
+.suggestion-box span {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 100%;
+  padding: 12px 0;
+  font-weight: 400;
+  font-size: 20px;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
 }
 
-.view-btn:hover {
-  background-color: #ccfbf1;
+/* NEW: Overlay that appears on hover above the label */
+.suggestion-box .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background: #000;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2;
 }
 
-.add-btn {
-  background-color: #0d9488;
-  color: #fff;
-}
-
-.add-btn:hover {
-  background-color: #0f766e;
-}
-
-.error {
-  color: red;
-  text-align: center;
-  margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-  .meal-panel {
-    width: 100%;
-    padding: 20px 10px;
-  }
-
-  .meal-card {
-    flex: 0 0 80%;
-    max-width: 80%;
-  }
+.suggestion-box:hover .overlay {
+  height: 48px;
+  opacity: 1;
 }

@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import './Navbar.css';
-import { FaBell, FaBars, FaTimes } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Navbar.css";
+import { FaBell, FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const isLoggedIn = !!localStorage.getItem('token');
+  const isLoggedIn = !!localStorage.getItem("token");
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
+    localStorage.removeItem("token");
+    navigate("/login");
   };
 
   return (
@@ -23,7 +23,7 @@ const Navbar = () => {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
 
-        <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+        <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
           <li onClick={() => setMenuOpen(false)}>
             <Link to="/">Dashboard</Link>
           </li>
@@ -33,7 +33,10 @@ const Navbar = () => {
           <li onClick={() => setMenuOpen(false)}>
             <Link to="/profile">Profile</Link>
           </li>
-          <li> {isLoggedIn && <button  onClick={handleLogout}>Logout</button>}</li>
+          <li>
+            {" "}
+            {isLoggedIn && <button onClick={handleLogout}>Logout</button>}
+          </li>
           <li className="notification" onClick={() => setMenuOpen(false)}>
             <Link to="/notifications">
               <FaBell />

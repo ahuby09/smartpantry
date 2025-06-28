@@ -1,24 +1,74 @@
-import React, { useState, useEffect } from 'react';
-import './RegistrationForm.css';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import "./RegistrationForm.css";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const dietaryOptions = ['No Dietary Requirements', 'Vegetarian', 'Vegan', 'Gluten-Free', 'Dairy-Free', 'Nut-Free'];
-const flavorOptions = ['Spicy', 'Sweet', 'Salty', 'Creamy', 'Cheesy', 'Savory', 'Smoky', 'Fruity', 'Earthy', 'Herby', 'Zesty', 'Tangy', 'Rich', 'Mild', 'Bold', 'Roasted', 'Pickled', 'Garlicky'];
-const cuisineOptions = ['Chinese', 'Indian', 'Italian', 'Mexican', 'American', 'Thai', 'Japanese', 'Middle Eastern', 'Mediterranean', 'French', 'British', 'Korean', 'Spanish', 'Vietnamese'];
-const allergyOptions = ['No Allergies', 'Peanuts', 'Tree Nuts', 'Dairy', 'Gluten', 'Soy', 'Eggs', 'Seafood'];
+const dietaryOptions = [
+  "No Dietary Requirements",
+  "Vegetarian",
+  "Vegan",
+  "Gluten-Free",
+  "Dairy-Free",
+  "Nut-Free",
+];
+const flavorOptions = [
+  "Spicy",
+  "Sweet",
+  "Salty",
+  "Creamy",
+  "Cheesy",
+  "Savory",
+  "Smoky",
+  "Fruity",
+  "Earthy",
+  "Herby",
+  "Zesty",
+  "Tangy",
+  "Rich",
+  "Mild",
+  "Bold",
+  "Roasted",
+  "Pickled",
+  "Garlicky",
+];
+const cuisineOptions = [
+  "Chinese",
+  "Indian",
+  "Italian",
+  "Mexican",
+  "American",
+  "Thai",
+  "Japanese",
+  "Middle Eastern",
+  "Mediterranean",
+  "French",
+  "British",
+  "Korean",
+  "Spanish",
+  "Vietnamese",
+];
+const allergyOptions = [
+  "No Allergies",
+  "Peanuts",
+  "Tree Nuts",
+  "Dairy",
+  "Gluten",
+  "Soy",
+  "Eggs",
+  "Seafood",
+];
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [step, setStep] = useState(1);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-    householdSize: '',
-    numberOfKids: '',
+    name: "",
+    email: "",
+    password: "",
+    householdSize: "",
+    numberOfKids: "",
     dietaryPreferences: [],
     flavorPreferences: [],
     cuisinePreferences: [],
@@ -29,8 +79,8 @@ const RegistrationForm = () => {
     if (location.state) {
       setForm((prev) => ({
         ...prev,
-        email: location.state.email || '',
-        password: location.state.password || '',
+        email: location.state.email || "",
+        password: location.state.password || "",
       }));
     }
   }, [location.state]);
@@ -45,31 +95,33 @@ const RegistrationForm = () => {
       const list = prev[name];
       return {
         ...prev,
-        [name]: list.includes(value) ? list.filter((item) => item !== value) : [...list, value],
+        [name]: list.includes(value)
+          ? list.filter((item) => item !== value)
+          : [...list, value],
       };
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     try {
-      const res = await fetch('http://localhost:3001/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("http://localhost:3001/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
       const data = await res.json();
       if (!res.ok) {
-        setError(data.message || 'Registration failed');
+        setError(data.message || "Registration failed");
         return;
       }
 
-      navigate('/login');
+      navigate("/login");
     } catch (err) {
-      console.error('Error submitting form:', err);
-      setError('Error connecting to the server.');
+      console.error("Error submitting form:", err);
+      setError("Error connecting to the server.");
     }
   };
 
@@ -88,12 +140,44 @@ const RegistrationForm = () => {
 
         {step === 1 && (
           <>
-            <input name="name" placeholder="Full Name" value={form.name} onChange={handleChange} required />
-            <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required />
-            <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required />
+            <input
+              name="name"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
             <div className="input-row">
-              <input name="householdSize" type="number" placeholder="Household Size" value={form.householdSize} onChange={handleChange} />
-              <input name="numberOfKids" type="number" placeholder="Number of Kids" value={form.numberOfKids} onChange={handleChange} />
+              <input
+                name="householdSize"
+                type="number"
+                placeholder="Household Size"
+                value={form.householdSize}
+                onChange={handleChange}
+              />
+              <input
+                name="numberOfKids"
+                type="number"
+                placeholder="Number of Kids"
+                value={form.numberOfKids}
+                onChange={handleChange}
+              />
             </div>
 
             <div className="preference-section">
@@ -103,8 +187,10 @@ const RegistrationForm = () => {
                   <button
                     key={opt}
                     type="button"
-                    className={form.allergies.includes(opt) ? 'toggle active' : 'toggle'}
-                    onClick={() => handleToggle('allergies', opt)}
+                    className={
+                      form.allergies.includes(opt) ? "toggle active" : "toggle"
+                    }
+                    onClick={() => handleToggle("allergies", opt)}
                   >
                     {opt}
                   </button>
@@ -119,8 +205,12 @@ const RegistrationForm = () => {
                   <button
                     key={opt}
                     type="button"
-                    className={form.dietaryPreferences.includes(opt) ? 'toggle active' : 'toggle'}
-                    onClick={() => handleToggle('dietaryPreferences', opt)}
+                    className={
+                      form.dietaryPreferences.includes(opt)
+                        ? "toggle active"
+                        : "toggle"
+                    }
+                    onClick={() => handleToggle("dietaryPreferences", opt)}
                   >
                     {opt}
                   </button>
@@ -128,7 +218,11 @@ const RegistrationForm = () => {
               </div>
             </div>
 
-            <button type="button" className="submit-btn" onClick={() => setStep(2)}>
+            <button
+              type="button"
+              className="submit-btn"
+              onClick={() => setStep(2)}
+            >
               Next
             </button>
           </>
@@ -143,8 +237,12 @@ const RegistrationForm = () => {
                   <button
                     key={opt}
                     type="button"
-                    className={form.flavorPreferences.includes(opt) ? 'toggle active' : 'toggle'}
-                    onClick={() => handleToggle('flavorPreferences', opt)}
+                    className={
+                      form.flavorPreferences.includes(opt)
+                        ? "toggle active"
+                        : "toggle"
+                    }
+                    onClick={() => handleToggle("flavorPreferences", opt)}
                   >
                     {opt}
                   </button>
@@ -159,8 +257,12 @@ const RegistrationForm = () => {
                   <button
                     key={opt}
                     type="button"
-                    className={form.cuisinePreferences.includes(opt) ? 'toggle active' : 'toggle'}
-                    onClick={() => handleToggle('cuisinePreferences', opt)}
+                    className={
+                      form.cuisinePreferences.includes(opt)
+                        ? "toggle active"
+                        : "toggle"
+                    }
+                    onClick={() => handleToggle("cuisinePreferences", opt)}
                   >
                     {opt}
                   </button>
@@ -169,7 +271,11 @@ const RegistrationForm = () => {
             </div>
 
             <div className="button-row">
-              <button type="button" className="submit-btn secondary" onClick={() => setStep(1)}>
+              <button
+                type="button"
+                className="submit-btn secondary"
+                onClick={() => setStep(1)}
+              >
                 Back
               </button>
               <button type="submit" className="submit-btn">

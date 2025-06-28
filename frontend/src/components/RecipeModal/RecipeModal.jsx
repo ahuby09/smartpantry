@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import './RecipeModal.css';
+import React, { useEffect, useState } from "react";
+import "./RecipeModal.css";
 
 const RecipeModal = ({ onClose, onSelect }) => {
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-    fetch('/recipes.json')
+    fetch("/recipes.json")
       .then((res) => res.json())
       .then(setRecipes);
   }, []);
 
-  const filtered = recipes.filter(r =>
+  const filtered = recipes.filter((r) =>
     r.name.toLowerCase().includes(query.toLowerCase())
   );
 
@@ -26,7 +26,7 @@ const RecipeModal = ({ onClose, onSelect }) => {
           onChange={(e) => setQuery(e.target.value)}
         />
         <div className="recipe-list">
-          {filtered.map(recipe => (
+          {filtered.map((recipe) => (
             <div
               key={recipe.id}
               className="recipe-card"

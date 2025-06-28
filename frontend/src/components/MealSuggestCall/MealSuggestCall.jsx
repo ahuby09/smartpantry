@@ -1,78 +1,59 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext/UserContext';
-import './MealSuggestCall.css';
+import React from "react";
+import "./MealSuggestCall.css";
 
 const MealSuggestCall = () => {
-  const userProfile = useContext(UserContext);
-  const [suggestions, setSuggestions] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log('UserContext content:', userProfile);
-    if (!userProfile) return; // wait until profile is loaded
-
-    const fetchSuggestions = async () => {
-      const token = localStorage.getItem('token');
-      try {
-        console.log('Fetching suggestions with profile:', userProfile);
-        const res = await fetch('http://localhost:3001/api/meal-suggestions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(userProfile),
-        });
-
-        if (res.status === 401 || res.status === 403) {
-          // invalid or expired token
-          localStorage.removeItem('token');
-          navigate('/login');
-          return;
-        }
-        if (!res.ok) {
-          const text = await res.text();
-          throw new Error(text || 'Failed to load suggestions');
-        }
-
-        const data = await res.json();
-        setSuggestions(data);
-      } catch (err) {
-        console.error('Meal-suggestions error:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSuggestions();
-  }, [userProfile, navigate]);
-
-  if (loading) return <p>Loading meal suggestions…</p>;
-  if (error)   return <p className="error">{error}</p>;
-
   return (
-    <div className="meal-panel">
-      <h2>AI-Powered Meal Suggestions</h2>
-      <div className="meal-scroll">
-        {suggestions.map((meal, i) => (
-          <div className="meal-card" key={i}>
-            {meal.image && <img src={meal.image} alt={meal.name} />}
-            <h3>{meal.name}</h3>
-            {meal.neededIngredients?.length > 0 && (
-              <p><strong>Buy:</strong> {meal.neededIngredients.join(', ')}</p>
-            )}
-            <div className="meal-actions">
-              <button onClick={() => navigate(`/recipe/${i}`)} className="text-blue-600 underline">
-  View Recipe
-</button>
-              <button>Add to Planner</button>
-            </div>
+    <div className="main-content">
+      <h2>AI-Powered Meal Suggestion</h2>
+      <div className="suggestion-grid">
+        <div
+          className="suggestion-box"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          }}
+        >
+          <div className="overlay">
+            <p>View AI Suggested Meals</p>
           </div>
-        ))}
+          <span>Breakfast</span>
+        </div>
+        <div
+          className="suggestion-box"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1600335895229-6e75511892c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          }}
+        >
+          <div className="overlay">
+            <p>View AI Suggested Meals</p>
+          </div>
+          <span>Dinner</span>
+        </div>
+        <div
+          className="suggestion-box"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+          }}
+        >
+          <div className="overlay">
+            <p>View AI Suggested Meals</p>
+          </div>
+          <span>Tea</span>
+        </div>
+        <div
+          className="suggestion-box"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          }}
+        >
+          <div className="overlay">
+            <p>View AI Suggested Meals</p>
+          </div>
+          <span>Dessert</span>
+        </div>
       </div>
     </div>
   );
