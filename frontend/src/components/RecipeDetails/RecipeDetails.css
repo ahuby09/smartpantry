@@ -1,0 +1,184 @@
+.recipe-banner {
+  background-size: cover;
+  height: 480px; 
+  background-position: center;
+  padding: 80px 20px;
+  color: white;
+  text-align: center;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+.banner-content{
+  position: rel;
+}
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.banner-sub {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  background-color: #5fd068;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+ 
+
+.recipe-body {
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.recipe-body h2 {
+  color: #199a8e;
+  margin-top: 30px;
+}
+
+.recipe-body ul,
+.recipe-body ol {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+ .recipe-banner {
+  background-size: cover;
+  height: 480px; 
+  background-position: center;
+  padding: 80px 20px 120px; /* Add bottom padding for space */
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  justify-content: space-between;
+  position: relative;
+}
+
+.banner-content {
+  z-index: 1;
+}
+
+ 
+
+.recipe-banner {
+  background-size: cover;
+  height: 480px;
+  background-position: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Center this child using flexbox */
+.banner-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.banner-sub {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  background-color: #5fd068;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Tag styling at bottom */
+.tags-bar {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: 0 auto;
+  gap: 10px;
+  justify-content: left;
+  padding: 12px 0px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: white;
+}
+
+.tag-dietary {
+  background-color: #4caf50;
+}
+
+.tag-taste {
+  background-color: #ab47bc;
+}
+.recipe-tabs {
+  background: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 30px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto; 
+  margin-bottom: 30px;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-buttons button {
+  background: #eee;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tab-buttons button.active {
+  background: #199a8e;
+  color: white;
+}
+
+.tab-content ul,
+.tab-content ol {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+.second-heading{
+  margin-bottom: 20px;
+}

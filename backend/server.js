@@ -149,10 +149,11 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
   }
 });
 
-// ——— Meal Suggestions (One per Day) ———
 app.post('/api/meal-suggestions', authenticateToken, async (req, res) => {
   const userId = req.user.id;
-  const cacheFile = path.join(MEAL_CACHE_DIR, `${userId}.json`);
+  const { type = 'dinner' } = req.body;
+  const sanitizedType = type.toLowerCase().replace(/[^a-z]/g, ''); // avoid unsafe filenames
+  const cacheFile = path.join(MEAL_CACHE_DIR, `${userId}_${sanitizedType}.json`);
 
   // Return cached suggestions if under 24 hours old
   if (fs.existsSync(cacheFile)) {
@@ -168,10 +169,33 @@ app.post('/api/meal-suggestions', authenticateToken, async (req, res) => {
     }
   }
 
-  const { dietaryPreferences, cuisinePreferences, flavorPreferences, allergies } = req.body;
+  try {
+    // Fetch user preferences from DB
+    const [rows] = await db.execute(
+      `SELECT dietary_preferences, cuisine_preferences, flavor_preferences, allergies FROM users WHERE id = ?`,
+      [userId]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'User not found' });
 
-const prompt = `
-You are a meal-planning assistant. Generate 5 dinner recipes for someone with:
+    const userPrefsRaw = rows[0];
+
+    const safeParse = (val) => {
+      if (typeof val !== 'string') return [];
+      try {
+        const parsed = JSON.parse(val);
+        return Array.isArray(parsed) ? parsed : [parsed];
+      } catch {
+        return [val];
+      }
+    };
+
+    const dietaryPreferences = safeParse(userPrefsRaw.dietary_preferences);
+    const cuisinePreferences = safeParse(userPrefsRaw.cuisine_preferences);
+    const flavorPreferences = safeParse(userPrefsRaw.flavor_preferences);
+    const allergies = safeParse(userPrefsRaw.allergies);
+
+    const prompt = `
+You are a meal-planning assistant. Generate 7 ${sanitizedType} recipes for someone with:
 - Dietary Preferences: ${dietaryPreferences.join(', ') || 'none'}
 - Flavor Preferences: ${flavorPreferences.join(', ') || 'none'}
 - Cuisine Preferences: ${cuisinePreferences.join(', ') || 'none'}
@@ -181,8 +205,9 @@ For each recipe, return a JSON object with:
 1. name
 2. recipe (a valid recipe URL)
 3. neededIngredients (array)
-4. method (step-by-step cooking instructions - please return in full with proper tempuratures etc))
-Return only a JSON array (no extra text or explanation). Wrap the response like this:
+4. method (step-by-step cooking instructions with full detail)
+
+Return only a JSON array (no extra text). Like:
 
 [
   {
@@ -193,14 +218,12 @@ Return only a JSON array (no extra text or explanation). Wrap the response like 
   },
   ...
 ]
- 
-Don't include an image, I will generate one separately.
-Return an array of 5 such objects.
+
+Don't include an image.
 `.trim();
 
-  try {
     const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o', 
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.8,
       max_tokens: 800
@@ -243,9 +266,107 @@ Return an array of 5 such objects.
     fs.writeFileSync(cacheFile, JSON.stringify(mealsWithImages, null, 2));
     res.json(mealsWithImages);
   } catch (err) {
-    console.error('AI generation error:', err);
+    console.error('Meal generation failed:', err);
     res.status(500).json({ error: 'Failed to generate meal suggestions' });
   }
+});
+app.get('/api/collections/:area', authenticateToken, async (req, res) => {
+  const slug = req.params.area;              // e.g. 'bbq', 'mocktails', etc.
+  const page = parseInt(req.query.page) || 0;
+  const limit = 7;
+  const offset = page * limit;
+
+  try {
+    // 1) Lookup by slug → name: reverse slugification
+    const lookupName = slug
+      .replace(/-/g, ' ')                     // e.g. 'perfect-for-hot-days' → 'perfect for hot days'
+      .toLowerCase();
+
+   const [cols] = await db.query(
+  `SELECT id, name, description, image_url
+     FROM collections
+    WHERE LOWER(name) = ?`,
+  [lookupName]
+);
+if (!cols.length) return res.sendStatus(404);
+const col = cols[0];
+
+    // 2) Total count
+    const [[{ total }]] = await db.query(
+      `SELECT COUNT(*) AS total
+         FROM collection_recipes
+        WHERE collection_id = ?`,
+      [col.id]
+    );
+
+    // 3) Paginated recipes
+    const [recipes] = await db.query(
+      `SELECT r.id, r.name, r.image_url
+         FROM collection_recipes cr
+         JOIN recipes r ON r.id = cr.recipe_id
+        WHERE cr.collection_id = ?
+        ORDER BY cr.added_at
+        LIMIT ? OFFSET ?`,
+      [col.id, limit, offset]
+    );
+
+    res.json({
+      collection: { name: col.name, image_url: col.image_url, description: col.description },
+      recipes,
+      total,
+      
+    });
+  } catch (err) {
+    console.error('Error fetching collection:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Require authentication for viewing collections
+app.get('/api/collections', authenticateToken, async (req, res) => {
+  try {
+    // Fetch all collections (admin‑created)
+    const [rows] = await db.query(
+      `SELECT id, name, image_url, created_at, description
+         FROM collections
+        ORDER BY created_at DESC`
+    );
+
+    // Derive slug from name
+    const collections = rows.map(col => {
+      const slug = col.name
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')  // strip punctuation
+        .trim()
+        .replace(/\s+/g, '-');      // spaces → dashes
+
+      return {
+        id: col.id,
+        name: col.name,
+        slug,
+        image_url: col.image_url,
+        created_at: col.created_at,
+        description: col.description
+      };
+    });
+
+    res.json(collections);
+  } catch (err) {
+    console.error('Error fetching collections:', err);
+    res.status(500).json({ error: 'Failed to fetch collections' });
+  }
+});
+
+// GET /api/recipes/:id
+app.get('/api/recipes/:id', authenticateToken, async (req, res) => {
+  const recipeId = req.params.id;
+  const [recipe] = await db.query('SELECT * FROM recipes WHERE id = ?', [recipeId]);
+
+  if (!recipe) {
+    return res.status(404).json({ error: "Recipe not found" });
+  }
+  console.log(recipe);
+  res.json(recipe);
 });
 
 // ——— Start Server ———

@@ -5,7 +5,10 @@ import HomePage from './pages/HomePage';
 import Register from './pages/Register';
 import { UserProvider } from './contexts/UserContext/UserContext';
 import ViewRecipe from './components/ViewRecipe/ViewRecipe';
-
+import CollectionView from './components/CollectionView/CollectionView';
+import ViewCollection from './pages/ViewCollection';
+import RecipePage from './pages/RecipePage';
+  
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
   if (!token) return false;
@@ -21,6 +24,9 @@ const isAuthenticated = () => {
 const App = () => {
   return (
     <Routes>
+     
+      <Route path="/recipe/:id" element={<RecipePage />} />
+      <Route path="/collections/:area" element={<ViewCollection />} />
       {/* Public Routes */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

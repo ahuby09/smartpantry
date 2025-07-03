@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Classic English Breakfast Tea",
+    "recipe": "https://www.bbcgoodfood.com/recipes/perfect-cup-english-breakfast-tea",
+    "neededIngredients": [
+      "black tea leaves",
+      "boiling water",
+      "milk",
+      "sugar (optional)"
+    ],
+    "method": "Step 1: Place black tea leaves in a teapot.\nStep 2: Pour boiling water over the leaves and steep for 3-5 minutes.\nStep 3: Strain the tea into a cup and add milk and sugar to taste.",
+    "image": null
+  },
+  {
+    "name": "Green Tea with Lemon",
+    "recipe": "https://www.thekitchn.com/how-to-make-the-best-iced-green-tea-242477",
+    "neededIngredients": [
+      "green tea bags",
+      "hot water",
+      "lemon slices",
+      "honey (optional)"
+    ],
+    "method": "Step 1: Steep green tea bags in hot water for 2-3 minutes.\nStep 2: Squeeze fresh lemon juice into the tea.\nStep 3: Stir in honey if desired.\nStep 4: Serve over ice for a refreshing drink.",
+    "image": null
+  },
+  {
+    "name": "Chai Tea Latte",
+    "recipe": "https://www.allrecipes.com/recipe/260130/homemade-chai-tea-latte/",
+    "neededIngredients": [
+      "black tea bags",
+      "spices (cinnamon, cloves, cardamom, ginger)",
+      "milk",
+      "sugar"
+    ],
+    "method": "Step 1: Brew black tea bags with spices in hot water.\nStep 2: Heat milk on the stovetop until steaming.\nStep 3: Mix the brewed tea with the steamed milk and add sugar to taste.\nStep 4: Strain into a cup and enjoy!",
+    "image": null
+  },
+  {
+    "name": "Herbal Chamomile Tea",
+    "recipe": "https://www.foodnetwork.com/recipes/food-network-kitchen/chamomile-tea-3362228",
+    "neededIngredients": [
+      "dried chamomile flowers",
+      "boiling water",
+      "honey (optional)"
+    ],
+    "method": "Step 1: Place dried chamomile flowers in a teapot.\nStep 2: Pour boiling water over the flowers and steep for 5-10 minutes.\nStep 3: Strain the tea into a cup and sweeten with honey if desired.",
+    "image": null
+  },
+  {
+    "name": "Earl Grey Tea Latte",
+    "recipe": "https://www.ohhowcivilized.com/earl-grey-latte/",
+    "neededIngredients": [
+      "Earl Grey tea bags",
+      "milk",
+      "vanilla extract",
+      "sugar"
+    ],
+    "method": "Step 1: Brew Earl Grey tea bags in hot water.\nStep 2: Heat milk on the stovetop with vanilla extract and sugar.\nStep 3: Mix the brewed tea with the steamed milk.\nStep 4: Strain into a cup and enjoy a comforting Earl Grey latte.",
+    "image": null
+  }
+]

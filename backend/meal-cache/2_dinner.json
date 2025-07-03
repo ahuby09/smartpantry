@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Garlic Butter Shrimp",
+    "recipe": "https://www.foodnetwork.com/recipes/garlic-butter-shrimp-recipe-2103550",
+    "neededIngredients": [
+      "shrimp",
+      "butter",
+      "garlic",
+      "lemon",
+      "parsley"
+    ],
+    "method": "Step 1: Melt butter in a skillet. \nStep 2: Add minced garlic and sauté until fragrant. \nStep 3: Add shrimp and cook until pink. \nStep 4: Squeeze lemon juice and sprinkle parsley on top before serving.",
+    "image": null
+  },
+  {
+    "name": "Grilled Lemon Herb Chicken",
+    "recipe": "https://www.allrecipes.com/recipe/231973/grilled-lemon-herb-chicken/",
+    "neededIngredients": [
+      "chicken breasts",
+      "lemon",
+      "olive oil",
+      "garlic",
+      "rosemary"
+    ],
+    "method": "Step 1: Marinate chicken in a mixture of lemon juice, olive oil, minced garlic, and rosemary. \nStep 2: Grill chicken until cooked through. \nStep 3: Serve with additional lemon slices and fresh herbs.",
+    "image": null
+  },
+  {
+    "name": "Pasta Primavera",
+    "recipe": "https://www.delish.com/cooking/recipe-ideas/a24223553/pasta-primavera-recipe/",
+    "neededIngredients": [
+      "pasta",
+      "assorted vegetables",
+      "olive oil",
+      "garlic",
+      "parmesan cheese"
+    ],
+    "method": "Step 1: Cook pasta according to package instructions. \nStep 2: Sauté vegetables in olive oil with minced garlic until tender. \nStep 3: Toss cooked pasta with vegetables and top with grated parmesan cheese before serving.",
+    "image": null
+  },
+  {
+    "name": "Beef Stir-Fry",
+    "recipe": "https://www.tasteofhome.com/recipes/beef-stir-fry/",
+    "neededIngredients": [
+      "beef strips",
+      "bell peppers",
+      "onion",
+      "soy sauce",
+      "ginger"
+    ],
+    "method": "Step 1: Stir-fry beef in a hot skillet until browned. \nStep 2: Add sliced bell peppers, onions, soy sauce, and ginger. \nStep 3: Cook until vegetables are tender and sauce has thickened. \nStep 4: Serve over rice.",
+    "image": null
+  },
+  {
+    "name": "Baked Salmon with Dill Sauce",
+    "recipe": "https://www.food.com/recipe/baked-salmon-with-dill-sauce-144612",
+    "neededIngredients": [
+      "salmon fillets",
+      "lemon",
+      "dill",
+      "sour cream",
+      "Dijon mustard"
+    ],
+    "method": "Step 1: Season salmon fillets with salt, pepper, and lemon juice. \nStep 2: Bake in the oven until cooked through. \nStep 3: Mix chopped dill, sour cream, and Dijon mustard for the sauce. \nStep 4: Serve salmon with dill sauce on top.",
+    "image": null
+  }
+]

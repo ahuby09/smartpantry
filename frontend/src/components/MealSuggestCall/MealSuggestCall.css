@@ -1,7 +1,7 @@
 .main-content {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 0px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -15,13 +15,13 @@
 .suggestion-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 53px;
+  justify-content: start;
+  gap: 40px;
 }
 
 .suggestion-box {
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   border-radius: 12px;
   background-size: cover;
   background-position: center;

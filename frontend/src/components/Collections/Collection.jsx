@@ -1,55 +1,49 @@
-import React from "react";
-import "./Collection.css";
+import React, { useEffect, useState } from 'react';
+import './Collection.css';
+import { useNavigate } from 'react-router-dom';
 
-const collections = [
-  {
-    name: "Pancakes",
-    image:
-      "https://plus.unsplash.com/premium_photo-1663854478296-dd00b6257021?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    area: "pancakes",
-  },
-  {
-    name: "Stir Fries",
-    image:
-      "https://plus.unsplash.com/premium_photo-1664478238082-3df93e48c491?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    area: "stirfries",
-  },
-  {
-    name: "Hot right now",
-    image:
-      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    area: "dinner1",
-  },
-  {
-    name: "Dinner",
-    image:
-      "https://images.unsplash.com/photo-1603073163308-9654c3fb70b5?q=80&w=727&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    area: "dinner2",
-  },
-  {
-    name: "BBQ",
-    image:
-      "https://images.unsplash.com/photo-1508615263227-c5d58c1e5821?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    area: "bbq",
-  },
-  {
-    name: "Mocktail",
-    image:
-      "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    area: "mocktail",
-  },
-];
+const layoutClasses = ["", "", "tall-wide", "tall", " ", "", ""];
 
 const Collections = () => {
+  const navigate = useNavigate();
+  const [collections, setCollections] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCollections = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const token = localStorage.getItem('token');
+        const res = await fetch('/api/collections', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error(`Error ${res.status}`);
+        const data = await res.json();
+        setCollections(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCollections();
+  }, []);
+
+  if (loading) return <p>Loading…</p>;
+  if (error)   return <p className="error">Error: {error}</p>;
+
   return (
     <div className="collections-wrapper">
       <h2>Collections</h2>
       <div className="collections-grid">
         {collections.map((item, index) => (
           <div
-            key={index}
-            className={`collection-card ${item.area}`}
-            style={{ backgroundImage: `url(${item.image})` }}
+            key={item.id}
+            className={`collection-card ${layoutClasses[index]}`}
+            style={{ backgroundImage: `url(${item.image_url})` }}
+            onClick={() => navigate(`/collections/${item.slug}`)}
           >
             <span>{item.name}</span>
           </div>

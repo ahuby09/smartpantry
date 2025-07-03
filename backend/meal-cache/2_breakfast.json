@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Classic Pancakes",
+    "recipe": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+    "neededIngredients": [
+      "1 cup all-purpose flour",
+      "2 tablespoons white sugar",
+      "1 tablespoon baking powder",
+      "1 cup milk",
+      "1 egg",
+      "2 tablespoons vegetable oil"
+    ],
+    "method": "Step 1: In a large bowl, sift together the flour, sugar, and baking powder.\nStep 2: Make a well in the center and pour in the milk, egg, and oil.\nStep 3: Mix until smooth.\nStep 4: Heat a lightly oiled griddle or frying pan over medium-high heat.\nStep 5: Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake.\nStep 6: Brown on both sides and serve hot.",
+    "image": "/meal-images/8a9c42a2-47c7-49ce-813e-6eec7c492f45.png"
+  },
+  {
+    "name": "Greek Yogurt Parfait",
+    "recipe": "https://www.foodnetwork.com/recipes/giada-de-laurentiis/yogurt-fruit-and-granola-parfait-recipe-1941075",
+    "neededIngredients": [
+      "1 cup Greek yogurt",
+      "1/2 cup granola",
+      "1/2 cup mixed berries (such as strawberries, blueberries, raspberries)"
+    ],
+    "method": "Step 1: In a glass or bowl, layer Greek yogurt, granola, and mixed berries.\nStep 2: Repeat the layers until the ingredients are used up.\nStep 3: Serve chilled.",
+    "image": "/meal-images/c9e5c1f3-efda-4a39-b0f0-61e4cb0cf278.png"
+  },
+  {
+    "name": "Avocado Toast",
+    "recipe": "https://cookieandkate.com/avocado-toast-recipe/",
+    "neededIngredients": [
+      "2 slices of whole grain bread",
+      "1 ripe avocado",
+      "1 tablespoon olive oil",
+      "Salt and pepper to taste"
+    ],
+    "method": "Step 1: Toast the whole grain bread until golden brown.\nStep 2: Mash the ripe avocado with olive oil, salt, and pepper.\nStep 3: Spread the avocado mixture on the toast.\nStep 4: Drizzle with additional olive oil and season with more salt and pepper if desired.",
+    "image": "/meal-images/d07c568c-0876-4a36-8e3e-b0713a985c09.png"
+  },
+  {
+    "name": "Omelette",
+    "recipe": "https://www.foodnetwork.com/recipes/alton-brown/the-omelette-recipe-1941773",
+    "neededIngredients": [
+      "2 large eggs",
+      "2 tablespoons milk",
+      "1/4 cup shredded cheese",
+      "1/4 cup diced vegetables (such as bell peppers, onions, tomatoes)"
+    ],
+    "method": "Step 1: In a bowl, whisk together eggs and milk until combined.\nStep 2: Heat a non-stick skillet over medium heat.\nStep 3: Pour the egg mixture into the skillet.\nStep 4: As the eggs set, add cheese and diced vegetables to one side.\nStep 5: Fold the omelette in half and cook until cheese melts.\nStep 6: Serve hot.",
+    "image": "/meal-images/9cbc2650-97f0-4f6a-a6e2-a8c766270ee9.png"
+  },
+  {
+    "name": "Smoothie Bowl",
+    "recipe": "https://minimalistbaker.com/how-to-make-a-smoothie-bowl/",
+    "neededIngredients": [
+      "1 frozen banana",
+      "1/2 cup frozen mixed berries",
+      "1/2 cup almond milk",
+      "1/4 cup granola",
+      "1 tablespoon chia seeds"
+    ],
+    "method": "Step 1: In a blender, combine frozen banana, frozen berries, and almond milk.\nStep 2: Blend until smooth.\nStep 3: Pour the smoothie into a bowl.\nStep 4: Top with granola and chia seeds.\nStep 5: Enjoy with a spoon.",
+    "image": "/meal-images/86f72faa-0784-4a4f-b019-e6276f537f7b.png"
+  }
+]

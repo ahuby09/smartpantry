@@ -1,7 +1,7 @@
 .collections-wrapper {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 0px;
   padding-top: 0px;
    font-family: "Poppins", sans-serif;
 }
@@ -18,10 +18,20 @@
   grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 240px;
   gap: 1rem;
-  grid-template-areas:
-    "pancakes stirfries bbq bbq mocktail"
-    "dinner1 dinner2 bbq bbq mocktail"
-    
+
+  /* Let grid place items in the first available slot (dense) */
+  grid-auto-flow: dense;
+}
+
+.collection-card.tall {
+  /* span two columns */
+  grid-row: span 2;
+}
+
+.collection-card.tall-wide {
+  /* span two rows */
+  grid-row: span 2;
+  grid-column: span 2;
 }
 
 .collection-card {
@@ -54,10 +64,4 @@
   color: #333333;
 }
 
-/* Assign grid areas */
-.pancakes { grid-area: pancakes; }
-.stirfries { grid-area: stirfries; }
-.dinner1 { grid-area: dinner1; }
-.dinner2 { grid-area: dinner2; }
-.bbq { grid-area: bbq; }
-.mocktail { grid-area: mocktail; }
+ 

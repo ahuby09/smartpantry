@@ -34,6 +34,7 @@ const LoginForm = () => {
       const data = await response.json();
       setLoading(false);
       localStorage.setItem("token", data.token);
+      
       const user = jwtDecode(data.token);
       navigate("/");
     } catch (err) {
